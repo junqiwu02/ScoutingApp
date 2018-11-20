@@ -8,22 +8,43 @@
     <title>Scouting App</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+        crossorigin="anonymous">
 </head>
 
 <body>
     <div class="container">
-        <ul class="nav fixed-bottom justify-content-center nav-pills bg-light">
-            <li class="nav-item my-3">
-                <a href="/search/" class="nav-link">Search</a>
+        <nav class="navbar sticky-top navbar-light bg-light">
+            <a href="#" class="navbar-brand">
+                <i class="fas fa-code"></i>
+                &nbspScouting App
+            </a>
+        </nav>
+
+        <ul class="nav fixed-bottom justify-content-center py-3 nav-pills bg-light">
+            <li class="nav-item">
+                <a href="/search/" class="nav-link text-center">
+                    <i class="fas fa-robot"></i><br>
+                    Search
+                </a>
             </li>
-            <li class="nav-item my-3">
-                <a href="/filters/" class="nav-link active">Filters</a>
+            <li class="nav-item">
+                <a href="/filters/" class="nav-link text-center active">
+                    <i class="fas fa-list"></i><br>
+                    Filters
+                </a>
             </li>
-            <li class="nav-item my-3">
-                <a href="/team/" class="nav-link">My Team</a>
+            <li class="nav-item">
+                <a href="/team/" class="nav-link text-center">
+                    <i class="fas fa-users"></i><br>
+                    My Team
+                </a>
             </li>
-            <li class="nav-item my-3">
-                <a href="/settings/" class="nav-link">Settings</a>
+            <li class="nav-item">
+                <a href="/settings/" class="nav-link text-center">
+                    <i class="fas fa-cog"></i><br>
+                    Settings
+                </a>
             </li>
         </ul>
     </div>
