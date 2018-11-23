@@ -26,30 +26,44 @@
                 </div>
             </div>
         </nav>
-        <div class="list-group-flush">
-            <button href="#" class="list-group-item list-group-item-action">Example Team</button>
-            <button href="#" class="list-group-item list-group-item-action">Example Team</button>
-            <button href="#" class="list-group-item list-group-item-action">Example Team</button>
-            <button href="#" class="list-group-item list-group-item-action">Example Team</button>
-            <button href="#" class="list-group-item list-group-item-action">Example Team</button>
-            <button href="#" class="list-group-item list-group-item-action">Example Team</button>
-            <button href="#" class="list-group-item list-group-item-action">Example Team</button>
-            <button href="#" class="list-group-item list-group-item-action">Example Team</button>
-            <button href="#" class="list-group-item list-group-item-action">Example Team</button>
-            <button href="#" class="list-group-item list-group-item-action">Example Team</button>
-            <button href="#" class="list-group-item list-group-item-action">Example Team</button>
-            <button href="#" class="list-group-item list-group-item-action">Example Team</button>
-            <button href="#" class="list-group-item list-group-item-action">Example Team</button>
-            <button href="#" class="list-group-item list-group-item-action">Example Team</button>
-            <button href="#" class="list-group-item list-group-item-action">Example Team</button>
+
+        <div class="carousel slide">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="list-group-flush">
+                        <button href="#" class="list-group-item list-group-item-action">Example Team</button>
+                        <button href="#" class="list-group-item list-group-item-action">Example Team</button>
+                        <button href="#" class="list-group-item list-group-item-action">Example Team</button>
+                        <button href="#" class="list-group-item list-group-item-action">Example Team</button>
+                        <button href="#" class="list-group-item list-group-item-action">Example Team</button>
+                        <button href="#" class="list-group-item list-group-item-action">Example Team</button>
+                        <button href="#" class="list-group-item list-group-item-action">Example Team</button>
+                        <button href="#" class="list-group-item list-group-item-action">Example Team</button>
+                        <button href="#" class="list-group-item list-group-item-action">Example Team</button>
+                        <button href="#" class="list-group-item list-group-item-action">Example Team</button>
+                        <button href="#" class="list-group-item list-group-item-action">Example Team</button>
+                        <button href="#" class="list-group-item list-group-item-action">Example Team</button>
+                        <button href="#" class="list-group-item list-group-item-action">Example Team</button>
+                        <button href="#" class="list-group-item list-group-item-action">Example Team</button>
+                        <button href="#" class="list-group-item list-group-item-action">Example Team</button>
+                    </div>
+                    <div class="jumbotron bg-transparent p-4 m-0">
+                        <h5 class="text-center text-secondary">
+                            <em>Load More</em><br>
+                            <i class="fas fa-angle-double-down"></i>
+                        </h5>
+                    </div>
+                    <div class="jumbotron bg-transparent py-4"></div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="jumbotron">
+                        
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="jumbotron bg-transparent p-4 m-0">
-            <h5 class="text-center text-secondary">
-                <em>Load More</em><br>
-                <i class="fas fa-angle-double-down"></i>
-            </h5>
-        </div>
-        <div class="jumbotron bg-transparent py-4"></div>
+
         <ul class="nav fixed-bottom justify-content-center py-3 nav-pills bg-light">
             <li class="nav-item">
                 <a href="/search/" class="nav-link text-center active">
@@ -84,6 +98,14 @@
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('.list-group-item-action').on('click', function () {
+                $('.carousel').carousel(1);
+            });
+        });
+    </script>
 </body>
 
 </html>
