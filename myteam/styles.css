@@ -1,11 +1,3 @@
-.handle {
-    cursor: grab;
-}
-
-.handle:active {
-    cursor: grabbing;
-}
-
 /* Remove arrows on numeric input elements */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
