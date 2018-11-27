@@ -93,9 +93,29 @@
         <div class="row">
             <div class="col col-12 my-2">
                 <div class="card">
-                    <h4 class="card-header">Match Analytics</h4>
+                    <h4 class="card-header">
+                        Match Analytics
+                        <a href="#" class="text-secondary float-right" data-toggle="modal" data-target="#matchModal"><i
+                                class="fas fa-expand"></i></a>
+                    </h4>
                     <div class="card-body">
                         <canvas id="matchChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="matchModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Match Analytics</h5>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <canvas id="modalMatchChart"></canvas>
                     </div>
                 </div>
             </div>
@@ -167,6 +187,31 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
     <script>
         new Chart($('#matchChart'), {
+            type: 'line',
+            data: {
+                labels: ['Quals 6', 'Quals', 'Quals 7', 'Quals 8', 'Quals 9', 'Quals 10', 'Quals 11', 'Quals 12'],
+                datasets: [{
+                    data: [4, 1, 10, 1, 10, 11, 13, 14],
+                    label: "Switch Placements",
+                    borderColor: "#3e95cd",
+                    fill: false
+                }, {
+                    data: [20, 35, 33, 15, 6, 8, 9, 14],
+                    label: "Scale Placements",
+                    borderColor: "#8e5ea2",
+                    fill: false
+                }
+                ]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Greater Pittsburg Regional'
+                }
+            }
+        });
+
+        new Chart($('#modalMatchChart'), {
             type: 'line',
             data: {
                 labels: ['Quals 6', 'Quals', 'Quals 7', 'Quals 8', 'Quals 9', 'Quals 10', 'Quals 11', 'Quals 12'],
