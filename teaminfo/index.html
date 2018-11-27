@@ -95,7 +95,7 @@
                 <div class="card">
                     <h4 class="card-header">Match Analytics</h4>
                     <div class="card-body">
-                        <canvas id="myChart"></canvas>
+                        <canvas id="matchChart"></canvas>
                     </div>
                 </div>
             </div>
@@ -166,41 +166,25 @@
     <!-- Chartjs -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
     <script>
-        var ctx = document.getElementById("myChart").getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'bar',
+        new Chart($('#matchChart'), {
+            type: 'line',
             data: {
-                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                labels: ['Quals 6', 'Quals', 'Quals 7', 'Quals 8', 'Quals 9', 'Quals 10', 'Quals 11', 'Quals 12'],
                 datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 5, 2, 3],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255,99,132,1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
+                    data: [4, 1, 10, 1, 10, 11, 13, 14],
+                    label: "Switch Placements",
+                    borderColor: "#3e95cd",
+                    fill: false
+                }, {
+                    data: [20, 35, 33, 15, 6, 8, 9, 14],
+                    label: "Scale Placements",
+                    borderColor: "#8e5ea2",
+                    fill: false
+                }
+                ]
             },
             options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
+
             }
         });
     </script>
