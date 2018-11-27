@@ -30,9 +30,81 @@
             </a>
         </nav>
 
-        <div class="jumbotron">
-
+        <div class="jumbotron mb-2">
+            <h1>4930 - Electric Mayhem</h1>
+            <p>
+                <br><i class="fas fa-lightbulb"></i> <a href="https://www.thebluealliance.com/team/4930" target="_blank">https://www.thebluealliance.com/team/4930</a>
+            </p>
         </div>
+
+
+        <div class="row">
+            <div class="col col-12 col-lg-6 my-2">
+                <div class="card">
+                    <h4 class="card-header">
+                        Bio
+                        <button class="btn btn-primary float-right">
+                            <i class="fas fa-pencil-ruler"></i>
+                            Edit
+                        </button>
+                    </h4>
+                    <ul class="list-group-flush p-0">
+                        <li class="list-group-item">
+                            <b>Auton</b><br>
+                            <i class="fas fa-check-circle text-success"></i> Score on switch
+                            <br><i class="fas fa-check-circle text-success"></i> Score on scale
+                            <br><i class="fas fa-times-circle text-danger"></i> Score multiple power cubes
+                            <br><i class="fas fa-check-circle text-success"></i> Start from any field position
+                        </li>
+                        <li class="list-group-item">
+                            <b>Tele-Op</b><br>
+                            <i class="fas fa-check-circle text-success"></i> Score on switch
+                            <br><i class="fas fa-check-circle text-success"></i> Score on scale
+                            <br><i class="fas fa-check-circle text-success"></i> Score on vault
+                            <br><i class="fas fa-check-circle text-success"></i> Climb solo
+                            <br><i class="fas fa-minus-circle text-warning"></i> Climb with another robot
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col col-12 col-lg-6 my-2">
+                <div class="card">
+                    <h4 class="card-header">
+                        Match Analytics
+                        <div class="float-right">
+                            <button class="btn btn-primary mr-2">
+                                <i class="fas fa-plus"></i>
+                                Add Match
+                            </button>
+                            <a href="#" class="text-secondary align-middle" data-toggle="modal" data-target="#matchModal">
+                                <i class="fas fa-expand"></i>
+                            </a>
+                        </div>
+                    </h4>
+                    <div class="card-body">
+                        <canvas id="matchChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="matchModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Match Analytics</h5>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <canvas id="modalMatchChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="jumbotron bg-transparent py-5"></div>
 
         <ul class="nav fixed-bottom justify-content-center py-3 nav-pills bg-light">
             <li class="nav-item">
