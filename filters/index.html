@@ -161,27 +161,27 @@
             </li>
         </ul>
         <div class="jumbotron bg-transparent py-4"></div>
-        <ul class="nav fixed-bottom justify-content-center py-3 nav-pills bg-light">
+        <ul class="nav fixed-bottom justify-content-center p-1 bg-light border-top">
             <li class="nav-item">
-                <a href="../search/" class="nav-link text-center">
+                <a href="../search/" class="nav-link text-center text-secondary">
                     <i class="fas fa-robot"></i><br>
                     Search
                 </a>
             </li>
             <li class="nav-item">
-                <a href="../filters/" class="nav-link text-center active">
+                <a href="../filters/" class="nav-link text-center">
                     <i class="fas fa-list"></i><br>
                     Filters
                 </a>
             </li>
             <li class="nav-item">
-                <a href="../login/" class="nav-link text-center">
+                <a href="../login/" class="nav-link text-center text-secondary">
                     <i class="fas fa-users"></i><br>
                     My Team
                 </a>
             </li>
             <li class="nav-item">
-                <a href="../settings/" class="nav-link text-center">
+                <a href="../settings/" class="nav-link text-center text-secondary">
                     <i class="fas fa-cogs"></i><br>
                     Settings
                 </a>
@@ -203,11 +203,8 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
         crossorigin="anonymous"></script>
     <script src="../jquery.ui.touch-punch.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('#filters').sortable({ handle: '.handle' });
-        });
-    </script>
+
+    <script src="scripts.js"></script>
 </body>
 
 </html>

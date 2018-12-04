@@ -106,27 +106,27 @@
 
         <div class="jumbotron bg-transparent py-5"></div>
 
-        <ul class="nav fixed-bottom justify-content-center py-3 nav-pills bg-light">
+        <ul class="nav fixed-bottom justify-content-center p-1 bg-light border-top">
             <li class="nav-item">
-                <a href="../search/" class="nav-link text-center">
+                <a href="../search/" class="nav-link text-center text-secondary">
                     <i class="fas fa-robot"></i><br>
                     Search
                 </a>
             </li>
             <li class="nav-item">
-                <a href="../filters/" class="nav-link text-center">
+                <a href="../filters/" class="nav-link text-center text-secondary">
                     <i class="fas fa-list"></i><br>
                     Filters
                 </a>
             </li>
             <li class="nav-item">
-                <a href="../login/" class="nav-link text-center active">
+                <a href="../login/" class="nav-link text-center">
                     <i class="fas fa-users"></i><br>
                     My Team
                 </a>
             </li>
             <li class="nav-item">
-                <a href="../settings/" class="nav-link text-center">
+                <a href="../settings/" class="nav-link text-center text-secondary">
                     <i class="fas fa-cogs"></i><br>
                     Settings
                 </a>
@@ -143,57 +143,8 @@
 
     <!-- Chartjs -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
-    <script>
-        new Chart($('#matchChart'), {
-            type: 'line',
-            data: {
-                labels: ['Quals 6', 'Quals', 'Quals 7', 'Quals 8', 'Quals 9', 'Quals 10', 'Quals 11', 'Quals 12'],
-                datasets: [{
-                    data: [4, 1, 10, 1, 10, 11, 13, 14],
-                    label: "Switch Placements",
-                    borderColor: "#3e95cd",
-                    fill: false
-                }, {
-                    data: [20, 35, 33, 15, 6, 8, 9, 14],
-                    label: "Scale Placements",
-                    borderColor: "#8e5ea2",
-                    fill: false
-                }
-                ]
-            },
-            options: {
-                title: {
-                    display: true,
-                    text: 'Greater Pittsburg Regional'
-                }
-            }
-        });
 
-        new Chart($('#modalMatchChart'), {
-            type: 'line',
-            data: {
-                labels: ['Quals 6', 'Quals', 'Quals 7', 'Quals 8', 'Quals 9', 'Quals 10', 'Quals 11', 'Quals 12'],
-                datasets: [{
-                    data: [4, 1, 10, 1, 10, 11, 13, 14],
-                    label: "Switch Placements",
-                    borderColor: "#3e95cd",
-                    fill: false
-                }, {
-                    data: [20, 35, 33, 15, 6, 8, 9, 14],
-                    label: "Scale Placements",
-                    borderColor: "#8e5ea2",
-                    fill: false
-                }
-                ]
-            },
-            options: {
-                title: {
-                    display: true,
-                    text: 'Greater Pittsburg Regional'
-                }
-            }
-        });
-    </script>
+    <script src="scripts.js"></script>
 </body>
 
 </html>
