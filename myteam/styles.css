@@ -6,3 +6,7 @@ p {
 .nav-link {
     font-size: 0.8rem;
 }
+
+body {
+    overflow-x: hidden;
+}
