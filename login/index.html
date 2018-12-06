@@ -15,6 +15,11 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
     <script src="../safari-standalone.js"></script>
+
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase.js"></script>
+    <script src="../firebaseinit.js"></script>
 </head>
 
 <body>
@@ -40,7 +45,7 @@
                     <input id="rememberMeCheckbox" class="form-check-input" type="checkbox">
                     <label for="rememberMeCheckbox">Remember Me</label>
                 </div>
-                <a class="btn btn-primary" href="../myteam/">Log In</a>
+                <button class="btn btn-primary" onclick="googleLogin();">Log In</button>
             </form>
         </div>
 
