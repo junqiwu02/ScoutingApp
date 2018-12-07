@@ -53,113 +53,8 @@
             </div>
         </div>
 
-        <ul id="filters" class="list-group-flush p-0">
-            <li href="#" class="list-group-item">
-                <button class="btn btn-sm btn-outline-danger mr-1">
-                    <i class="fas fa-minus"></i>
-                </button>
-                Example Filter
-                <i class="handle fas fa-bars fa-2x text-secondary float-right"></i>
-            </li>
-            <li href="#" class="list-group-item">
-                <button class="btn btn-sm btn-outline-danger mr-1">
-                    <i class="fas fa-minus"></i>
-                </button>
-                Example Filter
-                <i class="handle fas fa-bars fa-2x text-secondary float-right"></i>
-            </li>
-            <li href="#" class="list-group-item">
-                <button class="btn btn-sm btn-outline-danger mr-1">
-                    <i class="fas fa-minus"></i>
-                </button>
-                Example Filter
-                <i class="handle fas fa-bars fa-2x text-secondary float-right"></i>
-            </li>
-            <li href="#" class="list-group-item">
-                <button class="btn btn-sm btn-outline-danger mr-1">
-                    <i class="fas fa-minus"></i>
-                </button>
-                Example Filter
-                <i class="handle fas fa-bars fa-2x text-secondary float-right"></i>
-            </li>
-            <li href="#" class="list-group-item">
-                <button class="btn btn-sm btn-outline-danger mr-1">
-                    <i class="fas fa-minus"></i>
-                </button>
-                Example Filter
-                <i class="handle fas fa-bars fa-2x text-secondary float-right"></i>
-            </li>
-            <li href="#" class="list-group-item">
-                <button class="btn btn-sm btn-outline-danger mr-1">
-                    <i class="fas fa-minus"></i>
-                </button>
-                Example Filter
-                <i class="handle fas fa-bars fa-2x text-secondary float-right"></i>
-            </li>
-            <li href="#" class="list-group-item">
-                <button class="btn btn-sm btn-outline-danger mr-1">
-                    <i class="fas fa-minus"></i>
-                </button>
-                Example Filter
-                <i class="handle fas fa-bars fa-2x text-secondary float-right"></i>
-            </li>
-            <li href="#" class="list-group-item">
-                <button class="btn btn-sm btn-outline-danger mr-1">
-                    <i class="fas fa-minus"></i>
-                </button>
-                Example Filter
-                <i class="handle fas fa-bars fa-2x text-secondary float-right"></i>
-            </li>
-            <li href="#" class="list-group-item">
-                <button class="btn btn-sm btn-outline-danger mr-1">
-                    <i class="fas fa-minus"></i>
-                </button>
-                Example Filter
-                <i class="handle fas fa-bars fa-2x text-secondary float-right"></i>
-            </li>
-            <li href="#" class="list-group-item">
-                <button class="btn btn-sm btn-outline-danger mr-1">
-                    <i class="fas fa-minus"></i>
-                </button>
-                Example Filter
-                <i class="handle fas fa-bars fa-2x text-secondary float-right"></i>
-            </li>
-            <li href="#" class="list-group-item">
-                <button class="btn btn-sm btn-outline-danger mr-1">
-                    <i class="fas fa-minus"></i>
-                </button>
-                Example Filter
-                <i class="handle fas fa-bars fa-2x text-secondary float-right"></i>
-            </li>
-            <li href="#" class="list-group-item">
-                <button class="btn btn-sm btn-outline-danger mr-1">
-                    <i class="fas fa-minus"></i>
-                </button>
-                Example Filter
-                <i class="handle fas fa-bars fa-2x text-secondary float-right"></i>
-            </li>
-            <li href="#" class="list-group-item">
-                <button class="btn btn-sm btn-outline-danger mr-1">
-                    <i class="fas fa-minus"></i>
-                </button>
-                Example Filter
-                <i class="handle fas fa-bars fa-2x text-secondary float-right"></i>
-            </li>
-            <li href="#" class="list-group-item">
-                <button class="btn btn-sm btn-outline-danger mr-1">
-                    <i class="fas fa-minus"></i>
-                </button>
-                Example Filter
-                <i class="handle fas fa-bars fa-2x text-secondary float-right"></i>
-            </li>
-            <li href="#" class="list-group-item">
-                <button class="btn btn-sm btn-outline-danger mr-1">
-                    <i class="fas fa-minus"></i>
-                </button>
-                Example Filter
-                <i class="handle fas fa-bars fa-2x text-secondary float-right"></i>
-            </li>
-        </ul>
+        <ul id="filterList" class="list-group-flush p-0"></ul>
+
         <div class="jumbotron bg-transparent py-4"></div>
         <ul class="nav fixed-bottom justify-content-center bg-light border-top">
             <li class="nav-item mx-2">
@@ -175,7 +70,7 @@
                 </a>
             </li>
             <li class="nav-item mx-2">
-                <a href="../login/" class="nav-link text-center text-secondary">
+                <a href="../signin/" class="nav-link text-center text-secondary">
                     <i class="fas fa-users fa-lg"></i><br>
                     My Team
                 </a>
@@ -188,6 +83,16 @@
             </li>
         </ul>
     </div>
+
+    <template id="filter">
+        <li href="#" class="list-group-item">
+            <button class="btn btn-sm btn-outline-danger mr-1">
+                <i class="fas fa-minus"></i>
+            </button>
+            Filter
+            <i class="handle fas fa-bars fa-2x text-secondary float-right"></i>
+        </li>
+    </template>
 
     <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

@@ -32,23 +32,8 @@
             </div>
         </nav>
 
-        <div class="list-group-flush">
-            <a href="../teaminfo/" class="list-group-item list-group-item-action">Example Team</a>
-            <a href="../teaminfo/" class="list-group-item list-group-item-action">Example Team</a>
-            <a href="../teaminfo/" class="list-group-item list-group-item-action">Example Team</a>
-            <a href="../teaminfo/" class="list-group-item list-group-item-action">Example Team</a>
-            <a href="../teaminfo/" class="list-group-item list-group-item-action">Example Team</a>
-            <a href="../teaminfo/" class="list-group-item list-group-item-action">Example Team</a>
-            <a href="../teaminfo/" class="list-group-item list-group-item-action">Example Team</a>
-            <a href="../teaminfo/" class="list-group-item list-group-item-action">Example Team</a>
-            <a href="../teaminfo/" class="list-group-item list-group-item-action">Example Team</a>
-            <a href="../teaminfo/" class="list-group-item list-group-item-action">Example Team</a>
-            <a href="../teaminfo/" class="list-group-item list-group-item-action">Example Team</a>
-            <a href="../teaminfo/" class="list-group-item list-group-item-action">Example Team</a>
-            <a href="../teaminfo/" class="list-group-item list-group-item-action">Example Team</a>
-            <a href="../teaminfo/" class="list-group-item list-group-item-action">Example Team</a>
-            <a href="../teaminfo/" class="list-group-item list-group-item-action">Example Team</a>
-        </div>
+        <div id="teamList" class="list-group-flush"></div>
+        
         <div class="jumbotron bg-transparent p-4 m-0">
             <h5 class="text-center text-secondary">
                 <em>Load More</em><br>
@@ -71,7 +56,7 @@
                 </a>
             </li>
             <li class="nav-item mx-2">
-                <a href="../login/" class="nav-link text-center text-secondary">
+                <a href="../signin/" class="nav-link text-center text-secondary">
                     <i class="fas fa-users fa-lg"></i><br>
                     My Team
                 </a>
@@ -84,6 +69,10 @@
             </li>
         </ul>
     </div>
+
+    <template id="teamItem">
+        <a href="../teaminfo/" class="list-group-item list-group-item-action">Team</a>
+    </template>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
