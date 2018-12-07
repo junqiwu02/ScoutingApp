@@ -1,5 +1,6 @@
 .handle {
     cursor: grab;
+    color: #cccccc;
 }
 
 .handle:active {
