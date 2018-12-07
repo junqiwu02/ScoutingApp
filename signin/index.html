@@ -9,8 +9,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <link rel="apple-touch-icon" href="../apple-touch-icon.png">
     <title>Scouting App</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://bootswatch.com/4/lumen/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
         crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
@@ -20,7 +19,6 @@
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase.js"></script>
     <script src="../firebaseinit.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.4.1/firebaseui.css" />
 </head>
 
 <body>
@@ -35,12 +33,11 @@
         <div class="jumbotron">
             <h1 class="display-4 text-center">
                 Sign In<br>
-                <button class="firebaseui-idp-button mdl-button mdl-js-button mdl-button--raised firebaseui-idp-google firebaseui-id-idp-button"
-                    data-provider-id="google.com" data-upgraded=",MaterialButton" onclick="googleSignIn();">
-                    <span class="firebaseui-idp-icon-wrapper">
-                        <img class="firebaseui-idp-icon" alt="" src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg">
-                    </span>
-                    <span class="firebaseui-idp-text">Sign in with Google</span>
+                <button class="btn btn-light bg-white text-secondary" onclick="googleSignIn();">
+                    <p class="mx-4 my-2">
+                        <img class="mr-2" src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="">
+                        Sign in with Google
+                    </p>
                 </button>
             </h1>
         </div>

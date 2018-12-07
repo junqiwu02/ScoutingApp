@@ -8,3 +8,8 @@ input::-webkit-inner-spin-button {
 .nav-link {
     font-size: 0.8rem;
 }
+
+p img {
+    width: auto;
+    height: 2rem;
+}
