@@ -22,5 +22,6 @@ function googleSignIn() {
         // The firebase.auth.AuthCredential type that was used.
         let credential = error.credential;
         // ...
+        console.log(errorCode);
       });
 }
