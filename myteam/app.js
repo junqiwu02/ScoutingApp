@@ -8,7 +8,7 @@ function signOut() {
 
 firebase.auth().onAuthStateChanged(function (signedInUser) {
     if (signedInUser) {
-
+        document.getElementById('username').innerText = signedInUser.email;
     } else {
         window.location = '../signin/';
     }
