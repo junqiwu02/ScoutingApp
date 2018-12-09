@@ -2,9 +2,17 @@ function signOut() {
     firebase.auth().signOut().then(function () {
         window.location = '../signin';
     }, function (error) {
-        console.error('Error', error);
+        console.error(error);
     });
 }
+
+firebase.auth().onAuthStateChanged(function (signedInUser) {
+    if (signedInUser) {
+
+    } else {
+        window.location = '../signin/';
+    }
+});
 
 new Chart($('#matchChart'), {
     type: 'line',
