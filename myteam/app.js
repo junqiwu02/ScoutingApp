@@ -1,3 +1,11 @@
+function signOut() {
+    firebase.auth().signOut().then(function () {
+        window.location = '../signin';
+    }, function (error) {
+        console.error('Error', error);
+    });
+}
+
 new Chart($('#matchChart'), {
     type: 'line',
     data: {

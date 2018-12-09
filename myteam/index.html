@@ -13,7 +13,13 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
         crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
-    <script src="../safari-standalone.js"></script>
+    <script src="../javascript/safari-standalone.js"></script>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-database.js"></script>
+    <script src="../javascript/firebase-init.js"></script>
 </head>
 
 <body>
@@ -23,10 +29,10 @@
                 <img src="../logo.png" width="90" alt="">
                 Scouting App
             </a>
-            <a class="btn btn-primary" href="../signin/">
+            <button class="btn btn-primary" onclick="signOut();">
                 <i class="fas fa-sign-out-alt"></i>
                 Sign Out
-            </a>
+            </button>
         </nav>
 
         <div class="jumbotron mb-2">
@@ -37,7 +43,7 @@
         </div>
 
 
-        <div class="row mx-0">
+        <div class="row mx-0 mb-5 pb-5">
             <div class="col col-12 col-lg-6 my-2 px-0 pr-lg-2">
                 <div class="card">
                     <h4 class="card-header">
@@ -103,8 +109,6 @@
             </div>
         </div>
 
-        <div class="jumbotron bg-transparent py-5"></div>
-
         <ul class="nav fixed-bottom justify-content-center bg-light border-top">
             <li class="nav-item mx-2">
                 <a href="../search/" class="nav-link text-center text-secondary">
@@ -119,7 +123,7 @@
                 </a>
             </li>
             <li class="nav-item mx-2">
-                <a href="../signin/" class="nav-link text-center">
+                <a href="#" class="nav-link text-center" onclick="signinRedirect();">
                     <i class="fas fa-users fa-lg"></i><br>
                     My Team
                 </a>
@@ -143,7 +147,8 @@
     <!-- Chartjs -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
 
-    <script src="scripts.js"></script>
+    <script src="../javascript/signin-redirect.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>
