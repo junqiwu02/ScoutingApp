@@ -24,16 +24,23 @@
 
 <body>
     <div class="container p-0">
-        <nav class="navbar sticky-top navbar-light bg-light border-bottom">
+        <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light border-bottom">
             <a href="#" class="navbar-brand display-1">
                 <img src="../logo.png" width="90" alt="">
                 Scouting App
             </a>
-            <p class="ml-auto mr-2 my-auto text-secondary">Logged in as: <i id="username">[user email]</i></p>
-            <button class="btn btn-primary" onclick="signOut();">
-                <i class="fas fa-sign-out-alt"></i>
-                Sign Out
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
             </button>
+            <div id="navbarCollapse" class="collapse navbar-collapse">
+                <div class="float-right ml-auto mr-0">
+                    <label for="#signoutBtn" class="text-secondary mr-2">Logged in as: <i id="username">[user email]</i></label>
+                    <button id="signoutBtn" class="btn btn-primary" onclick="signOut();">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Sign Out
+                    </button>
+                </div>
+            </div>
         </nav>
 
         <div class="jumbotron mb-2">
