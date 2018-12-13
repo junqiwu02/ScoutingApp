@@ -18,11 +18,16 @@
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-firestore.js"></script>
     <script src="../javascript/firebase-init.js"></script>
 </head>
 
-<body>
+<body class="loading">
+    <div id="loadingScreen" class="jumbotron text-center">
+        <div class="my-4 py-4"></div>
+        <i class="fas fa-circle-notch fa-spin fa-4x mt-5 text-secondary"></i>
+        <h1 class="mt-4 text-secondary">Loading...</h1>
+    </div>
     <div class="container p-0">
         <nav class="navbar sticky-top navbar-expand-md navbar-light bg-light border-bottom">
             <a href="#" class="navbar-brand display-1">
@@ -64,7 +69,7 @@
                     <ul class="list-group-flush p-0">
                         <li class="list-group-item">
                             <b>Auton</b><br>
-                            <i class="fas fa-check-circle text-success"></i> Score on switch
+                            <i id="autonScoreOnSwitch" class="fas fa-check-circle text-success"></i> Score on switch
                             <br><i class="fas fa-check-circle text-success"></i> Score on scale
                             <br><i class="fas fa-times-circle text-danger"></i> Score multiple power cubes
                             <br><i class="fas fa-check-circle text-success"></i> Start from any field position
@@ -118,25 +123,25 @@
         </div>
 
         <ul class="nav fixed-bottom justify-content-center bg-light border-top">
-            <li class="nav-item mx-2">
+            <li class="nav-item mx-1">
                 <a href="../search/" class="nav-link text-center text-secondary">
                     <i class="fas fa-robot fa-lg"></i><br>
                     Search
                 </a>
             </li>
-            <li class="nav-item mx-2">
+            <li class="nav-item mx-1">
                 <a href="../filters/" class="nav-link text-center text-secondary">
                     <i class="fas fa-list fa-lg"></i><br>
                     Filters
                 </a>
             </li>
-            <li class="nav-item mx-2">
+            <li class="nav-item mx-1">
                 <a href="#" class="nav-link text-center" onclick="signinRedirect();">
                     <i class="fas fa-users fa-lg"></i><br>
                     My Team
                 </a>
             </li>
-            <li class="nav-item mx-2">
+            <li class="nav-item mx-1">
                 <a href="../about/" class="nav-link text-center text-secondary">
                     <i class="fas fa-info-circle fa-lg"></i><br>
                     About
