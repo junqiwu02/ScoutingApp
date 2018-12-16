@@ -1,5 +1,5 @@
 function remove(e) {
-    $(e).slideUp("fast", function () { $(this).remove(); });
+    $(e).slideUp('fast', function () { $(this).remove(); });
 }
 
 $(document).ready(function () {
