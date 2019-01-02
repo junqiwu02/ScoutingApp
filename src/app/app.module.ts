@@ -9,13 +9,13 @@ import { SearchComponent } from './search/search.component';
 import { FiltersComponent } from './filters/filters.component';
 import { AboutComponent } from './about/about.component';
 import { MyteamComponent } from './myteam/myteam.component';
-import { TeaminfoComponent } from './teaminfo/teaminfo.component';
 
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { CoreModule } from './core/core.module';
 import { AngularFireModule } from '@angular/fire';
 import { AuthService } from './core/auth.service';
+import { BottomnavComponent } from './bottomnav/bottomnav.component';
 export const firebaseConfig = environment.firebaseConfig;
 
 
@@ -26,7 +26,7 @@ export const firebaseConfig = environment.firebaseConfig;
         FiltersComponent,
         AboutComponent,
         MyteamComponent,
-        TeaminfoComponent
+        BottomnavComponent
     ],
     imports: [
         BrowserModule,

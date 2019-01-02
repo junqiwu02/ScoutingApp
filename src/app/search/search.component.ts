@@ -7,8 +7,11 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
     teams: Array<any>;
+    searchedTeam: number;
 
     constructor() {
+        this.searchedTeam = -1;
+
         this.teams = Array(50)
             .fill(1)
             .map(_ => {
@@ -22,4 +25,8 @@ export class SearchComponent implements OnInit {
 
     }
 
+    searchTeam(teamNum: number) {
+        window.scrollTo(0, 0);
+        this.searchedTeam = teamNum;
+    }
 }

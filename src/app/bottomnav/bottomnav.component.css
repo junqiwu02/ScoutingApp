@@ -1,0 +1,7 @@
+.active {
+    color: #158CBA !important;
+}
+
+.active:focus {
+    color: #158CBA !important;
+}
