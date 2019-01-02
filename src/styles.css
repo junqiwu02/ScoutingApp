@@ -1,0 +1,6 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("bootstrap.lumen.min.css");
+
+.nav-link {
+    font-size: 0.8rem;
+}
