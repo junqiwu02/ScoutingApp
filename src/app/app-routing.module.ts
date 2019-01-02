@@ -8,7 +8,7 @@ import { MyteamComponent } from './myteam/myteam.component';
 import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: '/search', pathMatch: 'full' },
+    { path: '', redirectTo: 'search', pathMatch: 'full' },
 
     { path: 'search', component: SearchComponent },
     { path: 'teaminfo', component: TeaminfoComponent },
