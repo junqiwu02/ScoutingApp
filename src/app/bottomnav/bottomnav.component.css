@@ -2,6 +2,10 @@
     color: #158CBA !important;
 }
 
+.active:hover {
+    color: #106a8c !important;
+}
+
 .active:focus {
     color: #158CBA !important;
 }
