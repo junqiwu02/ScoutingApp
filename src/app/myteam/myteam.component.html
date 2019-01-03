@@ -42,74 +42,169 @@
             </div>
         </div>
     </nav>
-    <div *ngIf="auth.user.team != null; then returninguser; else firsttime"></div>
-</ng-template>
 
-<ng-template #returninguser>
-    <div class="jumbotron mb-2">
-        <h1>4930 - Electric Mayhem</h1>
-        <p>
-            <i class="fas fa-lightbulb"></i> <a href="https://www.thebluealliance.com/team/4930" target="_blank">https://www.thebluealliance.com/team/4930</a>
-        </p>
-    </div>
-
-
-    <div class="row mx-0 mb-5 pb-5">
-        <div class="col col-12 my-2 px-0">
-            <div class="card">
-                <h4 class="card-header">
-                    Bio
-                    <button class="btn btn-primary float-right">
-                        <i class="fas fa-pencil-ruler"></i>
-                        Edit
-                    </button>
-                </h4>
-                <ul class="list-group-flush p-0">
-                    <li class="list-group-item">
-                        <b>Auton</b><br>
-                        <i id="autonScoreOnSwitch" class="fas fa-check-circle text-success"></i> Score on switch
-                        <br><i class="fas fa-check-circle text-success"></i> Score on scale
-                        <br><i class="fas fa-times-circle text-danger"></i> Score multiple power cubes
-                        <br><i class="fas fa-check-circle text-success"></i> Start from any field position
-                    </li>
-                    <li class="list-group-item">
-                        <b>Tele-Op</b><br>
-                        <i class="fas fa-check-circle text-success"></i> Score on switch
-                        <br><i class="fas fa-check-circle text-success"></i> Score on scale
-                        <br><i class="fas fa-check-circle text-success"></i> Score on vault
-                        <br><i class="fas fa-check-circle text-success"></i> Climb solo
-                        <br><i class="fas fa-minus-circle text-warning"></i> Climb with another robot
-                    </li>
-                </ul>
+    <div [ngSwitch]="auth.user.role">
+        <div *ngSwitchCase="'student'">
+            <div class="jumbotron mb-2">
+                <h1>4930 - Electric Mayhem</h1>
+                <p>
+                    <i class="fas fa-lightbulb"></i>&nbsp;<a href="https://www.thebluealliance.com/team/4930" target="_blank">https://www.thebluealliance.com/team/4930</a>
+                </p>
             </div>
-        </div>
-    </div>
-</ng-template>
-
-<ng-template #firsttime>
-    <div class="jumbotron mb-5 pb-5">
-        <h1 class="display-4 mb-5 text-center">Are you a...</h1>
-        <div class="row">
-            <div class="col col-12 col-md-6 mb-5 pb-5 border-right">
-                <h1 class="font-weight-light mb-3">Student?</h1>
-                <h4 class="font-weight-light">Request to join your team:</h4>
-                <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Team #">
-                    <div class="input-group-append">
-                        <button class="btn btn-success">
-                            <i class="fas fa-paper-plane"></i>
-                            Request
-                        </button>
+            <div class="row mx-0 mb-5 pb-5">
+                <div class="col col-12 my-2 px-0">
+                    <div class="card">
+                        <h4 class="card-header">
+                            Bio
+                            <button class="btn btn-primary float-right">
+                                <i class="fas fa-pencil-ruler"></i>
+                                Edit
+                            </button>
+                        </h4>
+                        <ul class="list-group-flush p-0">
+                            <li class="list-group-item">
+                                <b>Auton</b><br>
+                                <i id="autonScoreOnSwitch" class="fas fa-check-circle text-success"></i> Score on
+                                switch
+                                <br><i class="fas fa-check-circle text-success"></i> Score on scale
+                                <br><i class="fas fa-times-circle text-danger"></i> Score multiple power cubes
+                                <br><i class="fas fa-check-circle text-success"></i> Start from any field position
+                            </li>
+                            <li class="list-group-item">
+                                <b>Tele-Op</b><br>
+                                <i class="fas fa-check-circle text-success"></i> Score on switch
+                                <br><i class="fas fa-check-circle text-success"></i> Score on scale
+                                <br><i class="fas fa-check-circle text-success"></i> Score on vault
+                                <br><i class="fas fa-check-circle text-success"></i> Climb solo
+                                <br><i class="fas fa-minus-circle text-warning"></i> Climb with another robot
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <div class="col col-12 col-md-6 mb-5 pb-5">
-                <h1 class="font-weight-light mb-3">Mentor?</h1>
-                <h4 class="font-weight-light">Send us an email to get access to your team:</h4>
-                <a href="mailto:johndoe@example.com" target="_blank" class="btn btn-danger">
-                    <i class="fas fa-envelope"></i>
-                    Email Us
-                </a>
+        </div>
+
+
+        <div *ngSwitchCase="'mentor'">
+            <div class="jumbotron mb-2">
+                <h1>4930 - Electric Mayhem</h1>
+                <p>
+                    <i class="fas fa-lightbulb"></i>&nbsp;<a href="https://www.thebluealliance.com/team/4930" target="_blank">https://www.thebluealliance.com/team/4930</a>
+                </p>
+            </div>
+            <div class="row mx-0">
+                <div class="col col-12 col-md-6 my-2 px-0 pr-md-2">
+                    <div class="card">
+                        <h4 class="card-header">
+                            Join Requests
+                        </h4>
+                        <ul class="list-group p-0 m-0">
+                            <li *ngFor="let r of requests;" class="list-group-item">
+                                <div class="row">
+                                    <div class="col">
+                                        <h4 class="font-weight-light pt-1">{{ r.name }}</h4>
+                                    </div>
+                                    <div class="col">
+                                        <button class="btn btn-warning float-right">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                        <button class="btn btn-success float-right mr-1">
+                                            <i class="fas fa-check"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <h4 class="text-center text-secondary pb-2" *ngIf="requests.length == 0"><i>None</i></h4>
+                    </div>
+                </div>
+                <div class="col col-12 col-md-6 my-2 px-0 pl-md-2">
+                    <div class="card">
+                        <h4 class="card-header">
+                            Students
+                        </h4>
+                        <ul class="list-group p-0">
+                            <li *ngFor="let s of students;" class="list-group-item">
+                                <div class="row">
+                                    <div class="col">
+                                        <h4 class="font-weight-light pt-1">{{ s.name }}</h4>
+                                    </div>
+                                    <div class="col">
+                                        <button class="btn btn-danger float-right">
+                                            <i class="fas fa-times"></i>
+                                            Remove
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <h4 class="text-center text-secondary pb-2" *ngIf="students.length == 0"><i>None</i></h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row mx-0 mb-5 pb-5">
+                <div class="col col-12 my-2 px-0">
+                    <div class="card">
+                        <h4 class="card-header">
+                            Bio
+                            <button class="btn btn-primary float-right">
+                                <i class="fas fa-pencil-ruler"></i>
+                                Edit
+                            </button>
+                        </h4>
+                        <ul class="list-group-flush p-0">
+                            <li class="list-group-item">
+                                <b>Auton</b><br>
+                                <i id="autonScoreOnSwitch" class="fas fa-check-circle text-success"></i> Score on
+                                switch
+                                <br><i class="fas fa-check-circle text-success"></i> Score on scale
+                                <br><i class="fas fa-times-circle text-danger"></i> Score multiple power cubes
+                                <br><i class="fas fa-check-circle text-success"></i> Start from any field position
+                            </li>
+                            <li class="list-group-item">
+                                <b>Tele-Op</b><br>
+                                <i class="fas fa-check-circle text-success"></i> Score on switch
+                                <br><i class="fas fa-check-circle text-success"></i> Score on scale
+                                <br><i class="fas fa-check-circle text-success"></i> Score on vault
+                                <br><i class="fas fa-check-circle text-success"></i> Climb solo
+                                <br><i class="fas fa-minus-circle text-warning"></i> Climb with another robot
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div *ngSwitchCase="'admin'">Admin</div>
+
+
+        <div *ngSwitchDefault>
+            <div class="jumbotron mb-5 pb-5">
+                <h1 class="display-4 mb-5 text-center">Are you a...</h1>
+                <div class="row">
+                    <div class="col col-12 col-md-6 mb-5 pb-5 border-right">
+                        <h1 class="font-weight-light mb-3">Student?</h1>
+                        <h4 class="font-weight-light">Request to join your team:</h4>
+                        <div class="input-group">
+                            <input class="form-control" type="text" placeholder="Team #">
+                            <div class="input-group-append">
+                                <button class="btn btn-success">
+                                    <i class="fas fa-paper-plane"></i>
+                                    Request
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-12 col-md-6 mb-5 pb-5">
+                        <h1 class="font-weight-light mb-3">Mentor?</h1>
+                        <h4 class="font-weight-light">Send us an email to get access to your team:</h4>
+                        <a href="mailto:johndoe@example.com" target="_blank" class="btn btn-danger">
+                            <i class="fas fa-envelope"></i>
+                            Email Us
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

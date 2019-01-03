@@ -38,7 +38,7 @@ export class AuthService {
             }
         });
 
-        // get the reference to the firstore user data as an obersvable
+        // get the reference to the firstore user data as an observable
         this.userRef = this.afAuth.authState.pipe(switchMap(user => {
             if(user != null) {
                 return this.afs.doc<User>(`users/${user.uid}`).valueChanges();

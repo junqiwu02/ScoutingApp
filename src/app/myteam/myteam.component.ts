@@ -8,7 +8,14 @@ import { AuthService } from '../core/auth.service';
 })
 export class MyteamComponent implements OnInit {
 
-    constructor(public auth: AuthService) { }
+    // mentor fields
+    requests: Array<object>;
+    students: Array<object>;
+
+    constructor(public auth: AuthService) {
+        this.requests = Array(50).fill({ name: 'Student name' });
+        this.students = Array(50).fill({ name: 'Student name' });
+    }
 
     ngOnInit() {
 

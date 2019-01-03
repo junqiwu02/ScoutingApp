@@ -2,3 +2,9 @@ p img {
     width: auto;
     height: 2rem;
 }
+
+.list-group {
+    max-height: 300px;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
