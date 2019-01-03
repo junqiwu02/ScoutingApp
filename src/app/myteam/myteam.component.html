@@ -23,10 +23,6 @@
 </ng-template>
 
 <ng-template #authenticated>
-    <div *ngIf="auth.user.team != null; then returninguser; else firsttime"></div>
-</ng-template>
-
-<ng-template #returninguser>
     <nav class="navbar sticky-top navbar-expand-md navbar-light bg-light border-bottom">
         <a class="navbar-brand display-1">
             <img src="assets/logo.png" width="90" alt="">
@@ -46,7 +42,10 @@
             </div>
         </div>
     </nav>
+    <div *ngIf="auth.user.team != null; then returninguser; else firsttime"></div>
+</ng-template>
 
+<ng-template #returninguser>
     <div class="jumbotron mb-2">
         <h1>4930 - Electric Mayhem</h1>
         <p>
@@ -88,12 +87,6 @@
 </ng-template>
 
 <ng-template #firsttime>
-    <nav class="navbar sticky-top navbar-light bg-light border-bottom">
-        <a class="navbar-brand display-1">
-            <img src="assets/logo.png" width="90" alt="">
-            Scouting App
-        </a>
-    </nav>
     <div class="jumbotron mb-5 pb-5">
         <h1 class="display-4 mb-5 text-center">Are you a...</h1>
         <div class="row">

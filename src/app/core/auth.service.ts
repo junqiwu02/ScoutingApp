@@ -70,6 +70,11 @@ export class AuthService {
             photoURL: user.photoURL
         };
 
-        return userDoc.update(data);
+        userDoc.update(data)
+            .then(() => {/* user already exists and update successful */})
+            .catch(err => {
+                // user probably doesn't exist yet so use set() instead
+                userDoc.set(data);
+            });
     }
 }
