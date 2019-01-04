@@ -8,3 +8,16 @@ p img {
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
 }
+
+/* remove separating line on small screens */
+@media only screen and (max-width: 768px) {
+    .col {
+        border-right-color: transparent !important;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .col {
+        border-bottom-color: transparent !important;
+    }
+}

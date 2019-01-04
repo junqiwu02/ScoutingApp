@@ -9,15 +9,10 @@ import { auth } from 'firebase';
 })
 export class MyteamComponent implements OnInit {
 
-    // mentor fields
-    requests: Array<object>;
-    students: Array<object>;
-
     teamKeyIsValid = true;
 
     constructor(public auth: AuthService) {
-        this.requests = Array(50).fill({ name: 'Student name' });
-        this.students = Array(50).fill({ name: 'Student name' });
+
     }
 
     ngOnInit() {
