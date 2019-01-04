@@ -15,8 +15,7 @@ interface User {
     photoURL?: string;
     displayName?: string;
 
-    team?: number;
-    role?: string;
+    teamKey?: string;
 }
 
 @Injectable({
@@ -60,15 +59,19 @@ export class AuthService {
         this.afAuth.auth.signOut();
     }
 
-    updateUserData(user: any) {
+    updateUserData(user: User) {
         const userDoc: AngularFirestoreDocument<User> = this.afs.doc<User>(`users/${user.uid}`);
 
         const data: User = {
             uid: user.uid,
             email: user.email,
             displayName: user.displayName,
-            photoURL: user.photoURL
+            photoURL: user.photoURL,
         };
+
+        if('teamKey' in user) {
+            data.teamKey = user.teamKey;
+        }
 
         userDoc.update(data)
             .then(() => {/* user already exists and update successful */})

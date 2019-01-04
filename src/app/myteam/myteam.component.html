@@ -34,8 +34,9 @@
         </button>
         <div id="navbarCollapse" class="collapse navbar-collapse">
             <div class="float-right ml-auto mr-0">
-                <label for="#signoutBtn" class="text-secondary mr-2">Logged in as: <i id="username">{{
-                        auth.user.displayName }}</i></label>
+                <label for="#signoutBtn" class="text-secondary mr-2">
+                    Logged in as: <i id="username">{{auth.user.displayName }}</i>
+                </label>
                 <button id="signoutBtn" class="btn btn-primary" (click)="auth.signOut()">
                     <i class="fas fa-sign-out-alt"></i>
                     Sign Out
@@ -44,11 +45,15 @@
         </div>
     </nav>
 
-    <div *ngIf="auth.user.team_key == null; then firsttime; else returninguser"></div>
+    <div *ngIf="auth.user.teamKey == null; then firsttime; else returninguser"></div>
 </ng-template>
 
 <ng-template #returninguser>
     <div class="jumbotron mb-2">
+        <button class="btn btn-danger mb-2" (click)="leaveTeam()">
+            <i class="fas fa-door-open"></i>
+            Leave Team
+        </button>
         <h1>4930 - Electric Mayhem</h1>
         <p>
             <i class="fas fa-lightbulb"></i>&nbsp;<a href="https://www.thebluealliance.com/team/4930" target="_blank">https://www.thebluealliance.com/team/4930</a>
@@ -93,15 +98,17 @@
         <div class="row">
             <div class="col col-12 col-md-6 mb-5 pb-5 border-right">
                 <h1 class="font-weight-light mb-3">Student?</h1>
-                <h4 class="font-weight-light">Ask a mentor for your team key and enter it here:</h4>
+                <h4 class="font-weight-light">Ask a mentor for your 8 digit team key and enter it here:</h4>
                 <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Team key">
+                    <input #keyInput class="form-control text-center" [ngClass]="{'is-invalid': !teamKeyIsValid }"
+                        type="text" placeholder="xxxx-xxxx" (keydown)="updateKeyInput($event)" maxlength="9">
                     <div class="input-group-append">
-                        <button class="btn btn-success">
+                        <button class="btn btn-success rounded-right" (click)="joinTeam(keyInput.value)">
                             <i class="fas fa-paper-plane"></i>
                             Join
                         </button>
                     </div>
+                    <div class="invalid-feedback">Not a valid team key!</div>
                 </div>
             </div>
             <div class="col col-12 col-md-6 mb-5 pb-5">

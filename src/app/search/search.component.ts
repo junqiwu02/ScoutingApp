@@ -29,6 +29,7 @@ export class SearchComponent implements OnInit {
 
     onScroll() {
         let lastTeam = this.teams[this.teams.length - 1].team_number;
+        console.log(lastTeam);
         this.ts.getTeams(lastTeam).subscribe(data => {
             this.teams.push(...data);
         });

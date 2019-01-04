@@ -16,7 +16,7 @@ export class TeamService {
         if(lastTeam != undefined) {
             return this.afs.collection('teams', ref => ref.orderBy('team_number').startAfter(lastTeam).limit(20)).valueChanges();
         } else {
-            return this.afs.collection('teams', ref => ref.limit(20)).valueChanges();
+            return this.afs.collection('teams', ref => ref.orderBy('team_number').limit(20)).valueChanges();
         }
     }
 }
