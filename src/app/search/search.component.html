@@ -23,14 +23,17 @@
     <div class="container p-0">
 
         <div class="list-group-flush">
-            <a *ngFor="let t of teams;" (click)="searchTeam(t.number)" class="list-group-item list-group-item-action">{{
-                t.number }}</a>
+            <a *ngFor="let t of teams;" (click)="searchTeam(t.team_number)" class="list-group-item list-group-item-action">
+                {{ t.team_number }} - {{ t.nickname }}
+            </a>
         </div>
 
         <h5 class="text-center text-secondary mb-5 py-5">
             <em>Load More</em><br>
             <i class="fas fa-angle-double-down"></i>
         </h5>
+
+        <div infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="1000" (scrolled)="onScroll()"></div>
     </div>
 </ng-template>
 

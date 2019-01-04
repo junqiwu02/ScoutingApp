@@ -18,6 +18,8 @@ import { AuthService } from './core/auth.service';
 import { BottomnavComponent } from './bottomnav/bottomnav.component';
 export const firebaseConfig = environment.firebaseConfig;
 
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+
 
 @NgModule({
     declarations: [
@@ -33,7 +35,8 @@ export const firebaseConfig = environment.firebaseConfig;
         AppRoutingModule,
         DragDropModule,
         AngularFireModule.initializeApp(firebaseConfig),
-        CoreModule
+        CoreModule,
+        InfiniteScrollModule
     ],
     providers: [],
     bootstrap: [AppComponent]

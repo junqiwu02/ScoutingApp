@@ -9,3 +9,7 @@
 .active:focus {
     color: #158CBA !important;
 }
+
+.nav-link {
+    font-size: 0.8rem;
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { TeamService } from '../core/team.service';
 
 @Component({
     selector: 'app-search',
@@ -9,16 +10,12 @@ export class SearchComponent implements OnInit {
     teams: Array<any>;
     searchedTeam: number;
 
-    constructor() {
+    constructor(private ts: TeamService) {
         this.searchedTeam = -1;
 
-        this.teams = Array(50)
-            .fill(1)
-            .map(_ => {
-                return {
-                    number: 4930
-                };
-            });
+        this.ts.getTeams().subscribe(data => {
+            this.teams = data
+        });
     }
 
     ngOnInit() {
@@ -28,5 +25,12 @@ export class SearchComponent implements OnInit {
     searchTeam(teamNum: number) {
         window.scrollTo(0, 0);
         this.searchedTeam = teamNum;
+    }
+
+    onScroll() {
+        let lastTeam = this.teams[this.teams.length - 1].team_number;
+        this.ts.getTeams(lastTeam).subscribe(data => {
+            this.teams.push(...data);
+        });
     }
 }
