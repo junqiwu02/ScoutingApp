@@ -8,10 +8,12 @@ import { TeamService } from '../core/team.service';
 })
 export class SearchComponent implements OnInit {
     teams: Array<any>;
-    searchedTeam: number;
+    searchedTeam: object;
+
+    teamExists = true;
 
     constructor(private ts: TeamService) {
-        this.searchedTeam = -1;
+        this.searchedTeam = null;
 
         this.ts.getTeams().subscribe(data => {
             this.teams = data
@@ -22,15 +24,26 @@ export class SearchComponent implements OnInit {
 
     }
 
-    searchTeam(teamNum: number) {
+    showTeam(team: object) {
         window.scrollTo(0, 0);
-        this.searchedTeam = teamNum;
+        this.searchedTeam = team;
+    }
+
+    searchTeam(team: string) {
+        let teamNum = parseInt(team);
+        this.ts.searchByTeamNum(teamNum).subscribe((data: Array<object>) => {
+            if(data.length == 0) {
+                this.teamExists = false;
+            } else {
+                this.searchedTeam = data[0];
+            }
+        });
     }
 
     onScroll() {
         let lastTeam = this.teams[this.teams.length - 1].team_number;
         console.log(lastTeam);
-        this.ts.getTeams(lastTeam).subscribe(data => {
+        this.ts.getTeams(lastTeam).subscribe((data: Array<object>) => {
             this.teams.push(...data);
         });
     }

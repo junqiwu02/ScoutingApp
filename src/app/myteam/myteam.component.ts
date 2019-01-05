@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../core/auth.service';
-import { auth } from 'firebase';
+import { TeamService } from '../core/team.service';
 
 @Component({
     selector: 'app-myteam',
@@ -10,13 +10,22 @@ import { auth } from 'firebase';
 export class MyteamComponent implements OnInit {
 
     teamKeyIsValid = true;
+    userTeam: object;
 
-    constructor(public auth: AuthService) {
-
+    constructor(public auth: AuthService, public ts: TeamService) {
+        this.auth.userRef.subscribe(data => {
+            this.updateUserTeam();
+        });
     }
 
     ngOnInit() {
 
+    }
+
+    updateUserTeam() {
+        this.ts.searchByTeamKey(this.auth.user.teamKey).subscribe(data => {
+            this.userTeam = data;
+        });
     }
     
     prevLength = 0;

@@ -12,6 +12,14 @@ export class TeamService {
 
     }
 
+    searchByTeamNum(teamNum: number) {
+        return this.afs.collection('teams', ref => ref.where('team_number', '==', teamNum)).valueChanges();
+    }
+
+    searchByTeamKey(teamKey: string) {
+        return this.afs.doc(`teams/${teamKey}`).valueChanges();
+    }
+
     getTeams(lastTeam?: any) {
         if(lastTeam != undefined) {
             return this.afs.collection('teams', ref => ref.orderBy('team_number').startAfter(lastTeam).limit(20)).valueChanges();

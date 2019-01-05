@@ -54,9 +54,12 @@
             <i class="fas fa-door-open"></i>
             Leave Team
         </button>
-        <h1>4930 - Electric Mayhem</h1>
+        <h1>{{ userTeam.team_number }} - {{ userTeam.nickname }}</h1>
         <p>
-            <i class="fas fa-lightbulb"></i>&nbsp;<a href="https://www.thebluealliance.com/team/4930" target="_blank">https://www.thebluealliance.com/team/4930</a>
+            <i class="fas fa-lightbulb"></i>&nbsp;
+            <a href="https://www.thebluealliance.com/team/{{ userTeam.team_number }}" target="_blank">
+                https://www.thebluealliance.com/team/{{ userTeam.team_number }}
+            </a>
         </p>
     </div>
     <div class="row mx-0 mb-5 pb-5">

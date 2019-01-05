@@ -9,21 +9,25 @@
         </button>
         <div id="navbarCollapse" class="collapse navbar-collapse">
             <div class="input-group">
-                <input class="form-control" type="text" placeholder="Search team #">
+                <input #teamSearchInput class="form-control" [ngClass]="{'is-invalid': !teamExists}" type="number"
+                    placeholder="Search team #" (keydown)="teamExists = true;">
                 <div class="input-group-append">
-                    <button (click)="searchTeam(1)" class="btn btn-primary"><i class="fas fa-search"></i></button>
+                    <button (click)="searchTeam(teamSearchInput.value)" class="btn btn-primary rounded-right">
+                        <i class="fas fa-search"></i>
+                    </button>
                 </div>
+                <div class="invalid-feedback">Team does not exist!</div>
             </div>
         </div>
     </nav>
-    <div *ngIf="searchedTeam > 0; then teaminfo; else search"></div>
+    <div *ngIf="searchedTeam == null; then search; else teaminfo"></div>
 </div>
 
 <ng-template #search>
     <div class="container p-0">
 
         <div class="list-group-flush">
-            <a *ngFor="let t of teams;" (click)="searchTeam(t.team_number)" class="list-group-item list-group-item-action">
+            <a *ngFor="let t of teams;" (click)="showTeam(t)" class="list-group-item list-group-item-action">
                 {{ t.team_number }} - {{ t.nickname }}
             </a>
         </div>
@@ -41,7 +45,7 @@
     <div class="container p-0">
 
         <div class="jumbotron mb-2">
-            <button (click)="searchTeam(-1)" class="btn btn-primary mb-2">
+            <button (click)="showTeam(null)" class="btn btn-primary mb-2">
                 <i class="fas fa-arrow-left"></i>
                 Back
             </button>
@@ -49,10 +53,14 @@
                 <i class="fas fa-exclamation-circle"></i>
                 Report Abuse
             </button>
-            <h1>4930 - Electric Mayhem</h1>
+            <h1>{{ searchedTeam.team_number }} - {{ searchedTeam.nickname }}</h1>
             <p>
-                <i class="fas fa-map-marker-alt"></i> From Buffalo, NY, USA
-                <br><i class="fas fa-lightbulb"></i>&nbsp;<a href="https://www.thebluealliance.com/team/4930" target="_blank">https://www.thebluealliance.com/team/4930</a>
+                <i class="fas fa-map-marker-alt"></i>&nbsp;
+                From {{ searchedTeam.city }}, {{ searchedTeam.state_prov }}, {{ searchedTeam.country }}
+                <br><i class="fas fa-lightbulb"></i>&nbsp;
+                <a href="https://www.thebluealliance.com/team/{{ searchedTeam.team_number }}" target="_blank">
+                    https://www.thebluealliance.com/team/{{ searchedTeam.team_number }}
+                </a>
             </p>
         </div>
 
