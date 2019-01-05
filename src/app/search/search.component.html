@@ -10,7 +10,7 @@
         <div id="navbarCollapse" class="collapse navbar-collapse">
             <div class="input-group">
                 <input #teamSearchInput class="form-control" [ngClass]="{'is-invalid': !teamExists}" type="number"
-                    placeholder="Search team #" (keydown)="teamExists = true;">
+                    placeholder="Search team #" (keydown)="teamExists = true;" (keyup.enter)="searchTeam(teamSearchInput.value)">
                 <div class="input-group-append">
                     <button (click)="searchTeam(teamSearchInput.value)" class="btn btn-primary rounded-right">
                         <i class="fas fa-search"></i>
@@ -67,7 +67,7 @@
         <div class="row mx-0">
             <div class="col col-12 col-md-6 my-2 px-0 pr-md-2">
                 <div class="card">
-                    <h4 class="card-header">Bio</h4>
+                    <h4 class="card-header">Pit Scouting</h4>
                     <ul class="list-group-flush p-0">
                         <li class="list-group-item">
                             <b>Auton</b><br>
@@ -109,6 +109,19 @@
                 </div>
             </div>
         </div>
+        
+        <div class="row mx-0">
+            <div class="col col-12 my-2 px-0">
+                <div class="card">
+                    <h4 class="card-header">
+                        Team Bio
+                    </h4>
+                    <div class="card-body">
+                        <h4 class="text-center text-secondary"><i>Nothing's here...</i></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="row mx-0">
             <div class="col col-12 my-2 px-0">
@@ -117,8 +130,7 @@
                         Match Analytics
                     </h4>
                     <div class="card-body">
-                        <!--canvas id="matchChart"></canvas-->
-                        <h4 class="text-center text-secondary"><i>Coming Soon</i></h4>
+                        <h4 class="text-center text-secondary"><i>Coming Soon!</i></h4>
                     </div>
                 </div>
             </div>

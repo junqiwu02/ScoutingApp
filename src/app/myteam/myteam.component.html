@@ -50,7 +50,7 @@
 
 <ng-template #returninguser>
     <div class="jumbotron mb-2">
-        <button class="btn btn-danger mb-2" (click)="leaveTeam()">
+        <button type="button" class="btn btn-danger mb-2" data-toggle="modal" data-target="#leaveTeamModal">
             <i class="fas fa-door-open"></i>
             Leave Team
         </button>
@@ -62,34 +62,72 @@
             </a>
         </p>
     </div>
-    <div class="row mx-0 mb-5 pb-5">
-        <div class="col col-12 my-2 px-0">
-            <div class="card">
-                <h4 class="card-header">
-                    Bio
-                    <button class="btn btn-primary float-right">
-                        <i class="fas fa-pencil-ruler"></i>
-                        Edit
+
+    <div class="card my-3">
+        <h4 class="card-header">
+            Pit Scouting
+            <button class="btn btn-primary float-right">
+                <i class="fas fa-pencil-ruler"></i>
+                Edit
+            </button>
+        </h4>
+        <ul class="list-group-flush p-0">
+            <li class="list-group-item">
+                <b>Auton</b><br>
+                <i id="autonScoreOnSwitch" class="fas fa-check-circle text-success"></i> Score on
+                switch
+                <br><i class="fas fa-check-circle text-success"></i> Score on scale
+                <br><i class="fas fa-times-circle text-danger"></i> Score multiple power cubes
+                <br><i class="fas fa-check-circle text-success"></i> Start from any field position
+            </li>
+            <li class="list-group-item">
+                <b>Tele-Op</b><br>
+                <i class="fas fa-check-circle text-success"></i> Score on switch
+                <br><i class="fas fa-check-circle text-success"></i> Score on scale
+                <br><i class="fas fa-check-circle text-success"></i> Score on vault
+                <br><i class="fas fa-check-circle text-success"></i> Climb solo
+                <br><i class="fas fa-minus-circle text-warning"></i> Climb with another robot
+            </li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h4 class="card-header">
+            Team Bio
+            <button class="btn btn-primary float-right">
+                <i class="fas fa-pencil-ruler"></i>
+                Edit
+            </button>
+        </h4>
+        <div class="card-body">
+            <h4 class="text-center text-secondary"><i>Write something about your team!</i></h4>
+        </div>
+    </div>
+
+    <div class="jumbotron invisible"></div>
+
+    <div class="modal fade" id="leaveTeamModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Are you sure?</h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <i class="fas fa-times"></i>
                     </button>
-                </h4>
-                <ul class="list-group-flush p-0">
-                    <li class="list-group-item">
-                        <b>Auton</b><br>
-                        <i id="autonScoreOnSwitch" class="fas fa-check-circle text-success"></i> Score on
-                        switch
-                        <br><i class="fas fa-check-circle text-success"></i> Score on scale
-                        <br><i class="fas fa-times-circle text-danger"></i> Score multiple power cubes
-                        <br><i class="fas fa-check-circle text-success"></i> Start from any field position
-                    </li>
-                    <li class="list-group-item">
-                        <b>Tele-Op</b><br>
-                        <i class="fas fa-check-circle text-success"></i> Score on switch
-                        <br><i class="fas fa-check-circle text-success"></i> Score on scale
-                        <br><i class="fas fa-check-circle text-success"></i> Score on vault
-                        <br><i class="fas fa-check-circle text-success"></i> Climb solo
-                        <br><i class="fas fa-minus-circle text-warning"></i> Climb with another robot
-                    </li>
-                </ul>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to leave {{ userTeam.team_number }} - {{ userTeam.nickname }}?
+                    <br>You'll need your team key in order to rejoin.
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-danger mb-2 mr-2" (click)="leaveTeam()">
+                        <i class="fas fa-door-open"></i>
+                        Leave Team
+                    </button>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <h6 class="font-weight-bold">Cancel</h6>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -103,8 +141,9 @@
                 <h1 class="font-weight-light mb-3">Student?</h1>
                 <h4 class="font-weight-light">Ask a mentor for your 8 digit team key and enter it here:</h4>
                 <div class="input-group">
-                    <input #keyInput class="form-control text-center" [ngClass]="{'is-invalid': !teamKeyIsValid }"
-                        type="text" placeholder="xxxx-xxxx" (keydown)="updateKeyInput($event)" maxlength="9">
+                    <input #keyInput class="form-control text-center" [ngClass]="{'is-invalid': !teamKeyIsValid }" type="text"
+                        placeholder="xxxx-xxxx" (keydown)="updateKeyInput($event)" (keyup.enter)="joinTeam(keyInput.value)"
+                        maxlength="9">
                     <div class="input-group-append">
                         <button class="btn btn-success rounded-right" (click)="joinTeam(keyInput.value)">
                             <i class="fas fa-paper-plane"></i>
