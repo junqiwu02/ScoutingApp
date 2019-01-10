@@ -63,44 +63,82 @@
         </p>
     </div>
 
-    <div class="card my-3">
-        <h4 class="card-header">
-            Pit Scouting
-            <button class="btn btn-primary float-right">
-                <i class="fas fa-pencil-ruler"></i>
-                Edit
-            </button>
-        </h4>
-        <ul class="list-group-flush p-0">
-            <li class="list-group-item">
-                <b>Auton</b><br>
-                <i id="autonScoreOnSwitch" class="fas fa-check-circle text-success"></i> Score on
-                switch
-                <br><i class="fas fa-check-circle text-success"></i> Score on scale
-                <br><i class="fas fa-times-circle text-danger"></i> Score multiple power cubes
-                <br><i class="fas fa-check-circle text-success"></i> Start from any field position
-            </li>
-            <li class="list-group-item">
-                <b>Tele-Op</b><br>
-                <i class="fas fa-check-circle text-success"></i> Score on switch
-                <br><i class="fas fa-check-circle text-success"></i> Score on scale
-                <br><i class="fas fa-check-circle text-success"></i> Score on vault
-                <br><i class="fas fa-check-circle text-success"></i> Climb solo
-                <br><i class="fas fa-minus-circle text-warning"></i> Climb with another robot
-            </li>
-        </ul>
+    <div class="row mx-0">
+        <div class="col col-12 col-md-6 my-2 px-0 pr-md-2">
+            <div class="card">
+                <h4 class="card-header">
+                    Robot Abilities
+                    <button class="btn btn-primary float-right" type="button" data-toggle="modal" data-target="#abilitiesModal">
+                        <i class="fas fa-pencil-ruler"></i>
+                        Edit
+                    </button>
+                </h4>
+                <ul class="list-group-flush p-0">
+                    <li class="list-group-item">
+                        <b>Sandstorm</b>
+                        <br><i class="fas fa-question-circle text-info"></i> Leave hab from level 1
+                        <br><i class="fas fa-question-circle text-info"></i> Leave hab from level 2
+                        <br><i class="fas fa-question-circle text-info"></i> Use cameras / autonomous code
+                    </li>
+                    <li class="list-group-item">
+                        <b>Tele-Op</b>
+                        <br><i class="fas fa-question-circle text-info"></i> Place hatch on cargo ship
+                        <br><i class="fas fa-question-circle text-info"></i> Place cargo on cargo ship
+                        <br><i class="fas fa-question-circle text-info"></i> Place hatch on rocket level 1
+                        <br><i class="fas fa-question-circle text-info"></i> Place hatch on rocket level 2
+                        <br><i class="fas fa-question-circle text-info"></i> Place hatch on rocket level 3
+                        <br><i class="fas fa-question-circle text-info"></i> Place cargo on rocket level 1
+                        <br><i class="fas fa-question-circle text-info"></i> Place cargo on rocket level 2
+                        <br><i class="fas fa-question-circle text-info"></i> Place cargo on rocket level 3
+                    </li>
+                    <li class="list-group-item">
+                        <b>End game</b>
+                        <br><i class="fas fa-question-circle text-info"></i> Climb hab level 1
+                        <br><i class="fas fa-question-circle text-info"></i> Climb hab level 2
+                        <br><i class="fas fa-question-circle text-info"></i> Climb hab level 3
+                        <br><i class="fas fa-question-circle text-info"></i> Allow another robot to climb
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col col-12 col-md-6 my-2 px-0 pl-md-2">
+            <div class="card">
+                <h4 class="card-header">
+                    Robot Details
+                    <button class="btn btn-primary float-right" type="button" data-toggle="modal" data-target="#detailsModal">
+                        <i class="fas fa-pencil-ruler"></i>
+                        Edit
+                    </button>
+                </h4>
+                <ul class="list-group-flush p-0">
+                    <li class="list-group-item">
+                        <b>Mechanical</b>
+                        <br>Drive train: Mecanum Drive
+                    </li>
+                    <li class="list-group-item">
+                        <b>Code</b>
+                        <br>Programming language: C++
+                        <br><i class="fas fa-question-circle text-info"></i> Uses vision processing
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 
-    <div class="card">
-        <h4 class="card-header">
-            Team Bio
-            <button class="btn btn-primary float-right">
-                <i class="fas fa-pencil-ruler"></i>
-                Edit
-            </button>
-        </h4>
-        <div class="card-body">
-            <h4 class="text-center text-secondary"><i>Write something about your team!</i></h4>
+    <div class="row mx-0">
+        <div class="col col-12 my-2 px-0">
+            <div class="card">
+                <h4 class="card-header">
+                    Other Info
+                    <button class="btn btn-primary float-right" type="button" data-toggle="modal" data-target="#infoModal">
+                        <i class="fas fa-pencil-ruler"></i>
+                        Edit
+                    </button>
+                </h4>
+                <div class="card-body">
+                    <h4 class="text-center text-secondary"><i>Write something about your robot / team!</i></h4>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -120,12 +158,139 @@
                     <br>You'll need your team key in order to rejoin.
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-danger mb-2 mr-2" (click)="leaveTeam()">
+                    <button type="button" class="btn btn-danger mb-2 mr-2" data-dismiss="modal" (click)="leaveTeam()">
                         <i class="fas fa-door-open"></i>
                         Leave Team
                     </button>
                     <button type="button" class="close" data-dismiss="modal">
                         <h6 class="font-weight-bold">Cancel</h6>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="abilitiesModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Robot Abilities</h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group-flush p-0">
+                        <li class="list-group-item">
+                            <b>Sandstorm</b>
+                            <br><button class="btn btn-sm btn-info mb-1"><i class="fas fa-question-circle"></i> Unset</button>
+                            Leave hab from level 1
+                            <br><button class="btn btn-sm btn-info mb-1"><i class="fas fa-question-circle"></i> Unset</button>
+                            Leave hab from level 2
+                            <br><button class="btn btn-sm btn-info mb-1"><i class="fas fa-question-circle"></i> Unset</button>
+                            Use cameras / autonomous code
+                        </li>
+                        <li class="list-group-item">
+                            <b>Tele-Op</b>
+                            <br><button class="btn btn-sm btn-info mb-1"><i class="fas fa-question-circle"></i> Unset</button>
+                            Place hatch on cargo ship
+                            <br><button class="btn btn-sm btn-info mb-1"><i class="fas fa-question-circle"></i> Unset</button>
+                            Place cargo on cargo ship
+                            <br><button class="btn btn-sm btn-info mb-1"><i class="fas fa-question-circle"></i> Unset</button>
+                            Place hatch on rocket level 1
+                            <br><button class="btn btn-sm btn-info mb-1"><i class="fas fa-question-circle"></i> Unset</button>
+                            Place hatch on rocket level 2
+                            <br><button class="btn btn-sm btn-info mb-1"><i class="fas fa-question-circle"></i> Unset</button>
+                            Place hatch on rocket level 3
+                            <br><button class="btn btn-sm btn-info mb-1"><i class="fas fa-question-circle"></i> Unset</button>
+                            Place cargo on rocket level 1
+                            <br><button class="btn btn-sm btn-info mb-1"><i class="fas fa-question-circle"></i> Unset</button>
+                            Place cargo on rocket level 2
+                            <br><button class="btn btn-sm btn-info mb-1"><i class="fas fa-question-circle"></i> Unset</button>
+                            Place cargo on rocket level 3
+                        </li>
+                        <li class="list-group-item">
+                            <b>End game</b>
+                            <br><button class="btn btn-sm btn-info mb-1"><i class="fas fa-question-circle"></i> Unset</button>
+                            Climb hab level 1
+                            <br><button class="btn btn-sm btn-info mb-1"><i class="fas fa-question-circle"></i> Unset</button>
+                            Climb hab level 2
+                            <br><button class="btn btn-sm btn-info mb-1"><i class="fas fa-question-circle"></i> Unset</button>
+                            Climb hab level 3
+                            <br><button class="btn btn-sm btn-info mb-1"><i class="fas fa-question-circle"></i> Unset</button>
+                            Allow another robot to climb
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">
+                        <i class="fas fa-save"></i>
+                        Save
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="detailsModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Robot Details</h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group-flush p-0">
+                        <li class="list-group-item">
+                            <b>Mechanical</b><br>
+                            <div class="input-group input-group-sm mb-1">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Drive Train</span>
+                                </div>
+                                <input type="text" class="form-control" value="Mecanum Drive">
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Code</b><br>
+                            <div class="input-group input-group-sm mb-1">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Programming Language</span>
+                                </div>
+                                <input type="text" class="form-control" value="C++">
+                            </div>
+                            <button class="btn btn-sm btn-info mb-1"><i class="fas fa-question-circle"></i> Unset</button>
+                            Uses vision processing
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">
+                        <i class="fas fa-save"></i>
+                        Save
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="infoModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Other Info</h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <textarea class="form-control" placeholder="Write something about your robot / team!"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">
+                        <i class="fas fa-save"></i>
+                        Save
                     </button>
                 </div>
             </div>
